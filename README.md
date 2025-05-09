@@ -2,6 +2,10 @@
 
 *Control everything. Just like Professor X.*
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Michdo93/ControlX/refs/heads/main/static/professor-x.png" alt="ControlX Logo" width="300">
+</div>
+
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)
 ![Flask](https://img.shields.io/badge/built%20with-Flask-%23d44a36)
 ![License](https://img.shields.io/github/license/Michdo93/ControlX)
