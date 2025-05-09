@@ -1,0 +1,23 @@
+# Dockerfile selbst (im Unterordner)
+docker/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE files
+.vscode/
+.idea/
+
+# Git
+.git
+.gitignore
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Virtualenv
+venv/
+.env

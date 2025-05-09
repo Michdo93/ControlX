@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{ action }} Endpoint{% endblock %}
+
+{% block content %}
+<h2>{{ action }} Endpoint</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name">Name *</label>
+        <input type="text" class="form-control" name="name" id="name" required value="{{ endpoint.name if endpoint else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="route">Route *</label>
+        <input type="text" class="form-control" name="route" id="route" required value="{{ endpoint.route if endpoint else '' }}">
+        <div class="form-text">Example: <code>/folder/create</code></div>
+    </div>
+    <div class="mb-3">
+        <label for="method">HTTP Method *</label>
+        <select class="form-select" name="method" id="method" required>
+            {% for m in ['GET', 'POST', 'PUT', 'DELETE'] %}
+                <option value="{{ m }}" {% if endpoint and endpoint.method == m %}selected{% endif %}>{{ m }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="command">Command *</label>
+        <textarea class="form-control" name="command" id="command" rows="3" required>{{ endpoint.command if endpoint else '' }}</textarea>
+        <div class="form-text">Use placeholders such as <code>{path}</code></div>
+    </div>
+    <div class="mb-3">
+        <label for="parameters">Parameters (JSON-Array)</label>
+        <input type="text" class="form-control" name="parameters" id="parameters" value="{{ endpoint.parameters if endpoint else '' }}">
+        <div class="form-text">Example: <code>["path"]</code></div>
+    </div>
+    <div class="mb-3">
+        <label for="description">Description</label>
+        <textarea class="form-control" name="description" id="description" rows="2">{{ endpoint.description if endpoint else '' }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="display">Display</label>
+        <input type="text" class="form-control" name="display" id="display" value="{{ endpoint.display if endpoint else '' }}">
+        <div class="form-text">Example: <code>0</code></div>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ action }}</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

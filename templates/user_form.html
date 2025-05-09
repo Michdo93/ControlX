@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ action }} User{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">{{ action }} User</h1>
+<a href="{{ url_for('user_list') }}" class="btn btn-secondary mb-3">Back</a>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="username"
+               value="{{ user.username if user else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">
+            Password {% if action == 'Edit' %}(leave empty to keep current password){% endif %}
+        </label>
+        <input type="password" name="password" class="form-control" id="password" {% if action == 'Add' %}required{% endif %}>
+    </div>       
+    <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select name="role" class="form-select" id="role" required>
+            <option value="user" {% if user and user.role == 'user' %}selected{% endif %}>User</option>
+            <option value="admin" {% if user and user.role == 'admin' %}selected{% endif %}>Admin</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ action }}</button>
+</form>
+{% endblock %}
