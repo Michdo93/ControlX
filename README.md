@@ -25,6 +25,14 @@ You **orchestrate** them.
 
 ---
 
+# 🖼️ Screenshots
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/Michdo93/test2/refs/heads/main/controlx.png" width="90%" />
+</p>
+
+---
+
 ## ⚙️ Features
 
 - 🧠 **Custom API Execution**  
